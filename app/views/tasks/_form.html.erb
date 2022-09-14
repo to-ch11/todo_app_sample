@@ -1,0 +1,47 @@
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div>
+    <%= form.label :place, style: "display: block" %>
+    <%= form.text_area :place %>
+  </div>
+  
+  <div>
+  <select class="form-select" aria-label="Default select example">
+  <option selected>繰り返し</option>
+  <option value="1">なし</option>
+  <option value="2">毎日</option>
+  <option value="3">毎週</option>
+  <option value="4">毎月</option>
+  <option value="5">毎年</option>
+  </select>
+  </div>
+  
+  <div>
+    <div class="contact-heading">
+      <label class="contact-label">お問い合わせ内容<span class="contact-span">必須</span></label>
+    </div>
+    <div>
+      <textarea class="contact-textarea" placeholder="入力してください" name="message"></textarea>
+    </div>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
