@@ -10,6 +10,15 @@ module TodoApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    
+    config.to_prepare do
+      Devise::SessionsController.layout "devise"
+      Devise::RegistrationsController.layout "devise"
+      Devise::ConfirmationsController.layout "devise"
+      Devise::UnlocksController.layout "devise"
+      Devise::PasswordsController.layout "devise"
+      TopController.layout "top"
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

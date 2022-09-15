@@ -15,7 +15,6 @@ class TasksController < BaseController
   
   def create
     @task = current_user.tasks.new(task_params)
-    
     if @task.save
       redirect_to task_url(@task), notice:"タスク登録が出来ました！！"
     else
@@ -44,7 +43,7 @@ class TasksController < BaseController
   end
   
   def task_params
-    params.require(:task).permit(:title, :user_id, :category_id)
+    params.require(:task).permit(:title, :user_id)
   end
   
 end

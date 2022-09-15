@@ -1,0 +1,9 @@
+<div class="task-title-area px-3">
+  <h1>タスク一覧</h1>
+  <%= link_to new_task_path, title: "New", class: "btn p-0 text-dark", remote: true do %>
+    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">＋新しいタスクを追加</span>
+  <% end %>
+</div>
+<div class="pt-3 p-1 text-nowrap task-index-area" id="tasksIndex">
+  <%= render @tasks %>
+</div>

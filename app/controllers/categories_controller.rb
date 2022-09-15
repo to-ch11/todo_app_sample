@@ -7,6 +7,9 @@ class CategoriesController < ApplicationController
     @category = @task.categories.new
   end
   
+  def edit
+  end
+  
   def sort
   end
   
@@ -14,17 +17,17 @@ class CategoriesController < ApplicationController
     @category = @task.categories.new(category_params)
     
     if @category.save
-      @status = true
+      redirect_to @category, notice: 'Category was successfully created.'
     else
-      @status = false
+      render :new
     end
   end
   
   def update
     if @category.update(category_params)
-      @status = true
+      redirect_to @category, notice: 'Category was successfully updated.'
     else
-      @status = false
+      render :edit
     end
   end
   
