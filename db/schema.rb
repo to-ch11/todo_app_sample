@@ -24,9 +24,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_140739) do
     t.string "title", null: false
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer "repeat", null: false
+    t.integer "repeat"
     t.string "place"
-    t.text "content", null: false
+    t.text "content"
     t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

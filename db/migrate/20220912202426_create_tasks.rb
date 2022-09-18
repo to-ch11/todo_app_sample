@@ -6,9 +6,9 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.string :title, null: false
       t.datetime :start_at
       t.datetime :end_at
-      t.integer :repeat, null: false
+      t.integer :repeat
       t.string :place
-      t.text :content, null: false
+      t.text :content
       t.integer :rank
 
       t.timestamps

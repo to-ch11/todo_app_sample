@@ -16,7 +16,7 @@ class TasksController < BaseController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-      redirect_to task_url(@task), notice:"タスク登録が出来ました！！"
+      redirect_to tasks_path, notice:"タスク登録が出来ました！！"
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,9 +24,9 @@ class TasksController < BaseController
   
   def update
     if @task.update(task_params)
-      redirect_to task_url(@task), notice: "タスクが更新できました！！"
+      redirect_to tasks_path, notice: "タスクが更新できました！！"
     else
-      render :edit, status: unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
   
@@ -38,12 +38,11 @@ class TasksController < BaseController
   private
   
   def set_task
-    @task = current_user.tasks.find_by(id: params[:id])
-    redirect_to(tasks_url, alert: "ERROR!!") if @task.blank?
+    @task = current_user.tasks.find(params[:id])
   end
   
   def task_params
-    params.require(:task).permit(:title, :user_id)
+    params.require(:task).permit(:title, :start_at, :end_at, :repeat, :place, :content, :category_id)
   end
   
 end

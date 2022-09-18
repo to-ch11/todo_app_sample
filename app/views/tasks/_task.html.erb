@@ -1,12 +1,26 @@
+<div class="box">
 <div id="<%= dom_id task %>">
   <p>
-    <strong>Title</strong>
+    <strong>Title：</strong>
     <%= task.title %>
+    <strong>開始日時：</strong>
+    <%= task.start_at %>
+    <strong>終了日時：</strong>
+    <%= task.end_at %>
   </p>
   
   <p>
-    <strong>Body:</strong>
-    <%= task.body %>
+    <strong>詳細:</strong>
+    <%= task.content %>
+    <strong>カテゴリ:</strong>
+    <%= task.category&.name %>
   </p>
   
+  <p>
+    <strong>登録日時:</strong>
+    <%= l task.created_at, format: :long %>
+    <strong>更新日時:</strong>
+    <%= l task.updated_at, format: :long %>
+  </p>
+  </div>
 </div>

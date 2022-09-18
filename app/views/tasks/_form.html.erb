@@ -11,66 +11,34 @@
     </div>
   <% end %>
   
-  <div>
-    <%= form.label :title, style: "display: inline" %>
-    <%= form.text_field :title %>
-  </div>
+  <!--<body class="box">-->
+    <div class="box">
+      <%= form.label :タイトル, style: "display: inline" %>
+      <%= form.text_field :title %>
+    <hr>
   
-  <div class="select-year">
-    <select id="birth-year" class="select-box">
-      <option value= "2020"></option>
-      <option value= "2021"></option>
-      <option value= "2022"></option>
-    </select>
-    <input type="hidden" name="cookpad_user_registration[birth_year]" value="">
-    <span class="select-label">年</span>
-  </div>
-  
-  <div>
-    <%= form.label :開始日時, style: "display: inline" %>
-    <%= form.text_field :start_at %>
-  </div>
-  
-  <div>
-    <%= form.label :終了日時, style: "display: inline" %>
-    <%= form.text_field :end_at %>
-  </div>
-
-  <div>
-  <select class="form-select" aria-label="Default select example">
-  <option selected>繰り返し</option>
-  <option value="1">なし</option>
-  <option value="2">毎日</option>
-  <option value="3">毎週</option>
-  <option value="4">毎月</option>
-  <option value="5">毎年</option>
-  </select>
-  </div>
-  
-  <div>
-    <%= form.label :place, style: "display: inline" %>
-    <%= form.text_field :place %>
-  </div>
+      <%= form.label :開始日時, style: "display: inline" %>
+      <%= form.datetime_field :start_at %>
+      <%= form.label :終了日時, style: "display: inline" %>
+      <%= form.datetime_field :end_at %>
+    <hr>
     
-  <div>
-    <%= form.label :place, style: "display: block" %>
-    <%= form.text_field :place %>
-  </div>
-  
-  <div>
-    <%= form.label :place, style: "display: block" %>
-    <%= form.text_field :place %>
-  </div>
-  
-  <div>
-    <div class="contact-heading">
-      <label class="contact-label">お問い合わせ内容<span class="contact-span">必須</span></label>
+      <%= form.label :repeat, '繰り返し' %>     
+      <%= form.collection_select :repeat, Task.repeats_i18n, :first, :last, prompt: '選択してください' %>
+      
+    <label>カテゴリ選択</label>
+      <%= form.label :category_id, 'カテゴリ' %>     
+      <%= form.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください' %>
+    <hr>      
+      <%= form.label :場所, style: "display: inline" %>
+      <%= form.text_field :place %>
+    <hr>
+    <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="content" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">詳細</label>
     </div>
-    <div>
-      <textarea class="contact-textarea" placeholder="入力してください" name="message"></textarea>
-    </div>
-  </div>
-  
+  <!--</body>-->
+  <br>
   <div>
     <%= form.submit %>
   </div>

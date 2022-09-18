@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>タスク一覧</h1>
+<h1>ToDo App</h1>
+
+<h2>タスク一覧</h2>
+<%= link_to "＋新しいタスクを追加", new_task_path %>
+
 
 <div id="tasks">
   <% @tasks.each do |task| %>
     <%= render task %>
     <p>
-      <%= link_to "タスクを見る", task %>
+      <%= link_to "タスクを編集", edit_task_path(task) %> 
+      <%= button_to "タスクを削除", task, method: :delete %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "＋新しいタスクを追加", new_task_path %>
