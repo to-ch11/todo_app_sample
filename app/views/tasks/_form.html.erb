@@ -11,7 +11,6 @@
     </div>
   <% end %>
   
-  <!--<body class="box">-->
     <div class="box">
       <%= form.label :タイトル, style: "display: inline" %>
       <%= form.text_field :title %>
@@ -23,21 +22,17 @@
       <%= form.datetime_field :end_at %>
     <hr>
     
-      <%= form.label :repeat, '繰り返し' %>     
+      <%= form.label :repeat, '繰返し' %>     
       <%= form.collection_select :repeat, Task.repeats_i18n, :first, :last, prompt: '選択してください' %>
       
-    <label>カテゴリ選択</label>
       <%= form.label :category_id, 'カテゴリ' %>     
       <%= form.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください' %>
     <hr>      
       <%= form.label :場所, style: "display: inline" %>
       <%= form.text_field :place %>
     <hr>
-    <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="content" style="height: 100px"></textarea>
-    <label for="floatingTextarea2">詳細</label>
-    </div>
-  <!--</body>-->
+      <%= form.label :詳細, style: "display: inline-block" %>
+      <%= form.text_area :content %>
   <br>
   <div>
     <%= form.submit %>

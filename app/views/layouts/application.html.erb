@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TodoApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +10,17 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse navbar-light" style="background-color: #e3f2fd;">
+      <div class="container">
+        <%= link_to "ToDoapp", tasks_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Menu", '#' %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div class="container">
       <%= yield %>
     </div>
