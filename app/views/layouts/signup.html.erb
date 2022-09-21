@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>TodoApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,12 +11,7 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <main>
-    <div class="container">
-      <%= yield %>
-    </div>
-    </main>
-    <%= render "layouts/footer" %>
+    <h1>signup layout</h1>
+    <%= yield %>
   </body>
 </html>
