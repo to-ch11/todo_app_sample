@@ -2,8 +2,17 @@ ja:
   enums:
     task:
       repeat:
-        nothing: なし
-        daily: 毎日
-        weekly: 毎週
-        monthly: 毎月
-        year: 毎年
+        nothing: "なし"
+        daily: "毎日"
+        weekly: "毎週"
+        monthly: "毎月"
+        year: "毎年"
+        
+ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

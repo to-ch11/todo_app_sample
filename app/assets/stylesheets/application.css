@@ -14,7 +14,6 @@
  *= require_self
  */
 
-@import "base";
 @import "tasks";
 
 /* header */
@@ -30,7 +29,3 @@
   font-weight: bold;
 }
 
-#logo:hover {
-  color: #008080;
-  text-decoration: none;
-}

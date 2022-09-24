@@ -3,7 +3,7 @@ class TasksController < BaseController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tasks = current_user.tasks.all
+    @tasks = current_user.tasks.all.page(params[:page]).per(10)
   end
   
   def new

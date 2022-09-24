@@ -13,26 +13,39 @@
   
     <div class="box">
       <%= form.label :タイトル, style: "display: inline" %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, :size => "110x1" %>
+      
+      <%= form.label :完了 %>
+      <%= form.check_box :position, {}, "true", "false" %>
     <hr>
-  
+    <div class="row">
+      <div class="col">
       <%= form.label :開始日時, style: "display: inline" %>
       <%= form.datetime_field :start_at %>
+      </div>
+      <div class="col">
       <%= form.label :終了日時, style: "display: inline" %>
       <%= form.datetime_field :end_at %>
-    <hr>
-    
+      </div>
+      <div class="col">
       <%= form.label :repeat, '繰返し' %>     
       <%= form.collection_select :repeat, Task.repeats_i18n, :first, :last, prompt: '選択してください' %>
-      
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
       <%= form.label :category_id, 'カテゴリ' %>     
       <%= form.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください' %>
-    <hr>      
+      </div>
+      <div class="col">
       <%= form.label :場所, style: "display: inline" %>
       <%= form.text_field :place %>
+      </div>
+    </div>
     <hr>
       <%= form.label :詳細, style: "display: inline-block" %>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, :size => "100x4" %>
   <br>
   <div>
     <%= form.submit %>
