@@ -14,7 +14,7 @@
 }
 
 .fixed2{
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .relative {
@@ -33,4 +33,12 @@ h1 {
 
 .col-3{
    color:red;
+}
+
+.search_form{
+  text-align: center;
+}
+
+.paginate{
+  text-align: right;
 }

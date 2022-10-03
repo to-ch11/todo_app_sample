@@ -1,4 +1,4 @@
-class MenusController < ApplicationController
+class MenusController < BaseController
   def index
   end
 end

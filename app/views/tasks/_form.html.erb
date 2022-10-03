@@ -2,7 +2,7 @@
   <% if task.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      
+
       <ul>
         <% task.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,13 +10,12 @@
       </ul>
     </div>
   <% end %>
-  
+
     <div class="box">
       <%= form.label :タイトル, style: "display: inline" %>
       <%= form.text_field :title, :size => "110x1" %>
-      
-      <%= form.label :完了 %>
-      <%= form.check_box :position, {}, "true", "false" %>
+      <%= form.label :status, 'ステータス' %>
+      <%= form.collection_select :status, Task.statuses_i18n, :first, :last %>
     <hr>
     <div class="row">
       <div class="col">
@@ -46,7 +45,7 @@
     <hr>
       <%= form.label :詳細, style: "display: inline-block" %>
       <%= form.text_area :content, :size => "100x4" %>
-  <br>
+    <br>
   <div>
     <%= form.submit %>
   </div>
