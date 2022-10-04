@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root "top#index"
   resources :tasks
   resources :menus, only: %i(index)
-  resources :profiles, only: %i(edit update)
+  resource :profiles, only: %i(edit update)
 end
