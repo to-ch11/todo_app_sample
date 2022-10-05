@@ -1,13 +1,8 @@
 <h2>パスワード変更</h2>
 
-<%= form_with(model: current_user, url: user_password_path, method: :put, local: true) do |f| %>
+<%= form_with(model: current_user, url: profiles_path) do |f| %>
   <%= f.hidden_field :reset_password_token %>
   
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
   <div class="field">
     <%= f.label :password %> <i>(変更不要の場合は空白のまま)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
@@ -22,11 +17,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(現在のパスワード)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
