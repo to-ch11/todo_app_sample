@@ -1,8 +1,7 @@
 <h2>パスワード変更</h2>
 
 <%= form_with(model: current_user, url: profiles_path) do |f| %>
-  <%= f.hidden_field :reset_password_token %>
-  
+
   <div class="field">
     <%= f.label :password %> <i>(変更不要の場合は空白のまま)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>

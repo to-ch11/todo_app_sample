@@ -3,10 +3,11 @@ class ProfilesController < BaseController
   end
 
   def update
-    if current_user.update(user_params)
-      redirect_to :new_user_session, notice: 'パスワードが変更されたためログアウトします'
+    current_user.password = user_params[:password]
+    if current_user.save
+      redirect_to :new_user_session, notice: 'パスワードを変更した為、ログアウトしました'
     else
-      render :edit, status: :unprocessable_entry
+      render :edit 
     end
   end
 
