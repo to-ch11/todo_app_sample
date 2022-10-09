@@ -27,14 +27,14 @@
       <%= form.datetime_field :end_at %>
       </div>
       <div class="col">
-      <%= form.label :repeat, '繰返し' %>     
+      <%= form.label :repeat, '繰返し' %>
       <%= form.collection_select :repeat, Task.repeats_i18n, :first, :last, prompt: '選択してください' %>
       </div>
     </div>
     <hr>
     <div class="row">
       <div class="col">
-      <%= form.label :category_id, 'カテゴリ' %>     
+      <%= form.label :category_id, 'カテゴリ' %>
       <%= form.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください' %>
       </div>
       <div class="col">

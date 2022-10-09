@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.6"
 
-gem 'seed-fu', '~> 2.3'
+gem "seed-fu", "~> 2.3"
 gem "kaminari"
 gem "enum_help"
-gem 'acts_as_list', '~> 0.9.19'
+gem "acts_as_list", "~> 0.9.19"
 gem "devise"
 gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
@@ -15,7 +15,6 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-# gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
