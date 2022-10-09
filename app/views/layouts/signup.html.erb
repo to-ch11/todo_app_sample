@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>TodoApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,13 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "layouts/header" %>
-    <main class= "fixed2">
-    <div class="container">
-      <%= yield %>
-    </div>
-    </main>
-    <%= render "layouts/footer" %>
+  <body class = "box center">
+    <%= yield %>
   </body>
 </html>

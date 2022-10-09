@@ -2,7 +2,7 @@
   <% if task.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      
+
       <ul>
         <% task.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,35 +10,42 @@
       </ul>
     </div>
   <% end %>
-  
-  <!--<body class="box">-->
+
     <div class="box">
       <%= form.label :タイトル, style: "display: inline" %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, :size => "110x1" %>
+      <%= form.label :status, 'ステータス' %>
+      <%= form.collection_select :status, Task.statuses_i18n, :first, :last %>
     <hr>
-  
+    <div class="row">
+      <div class="col">
       <%= form.label :開始日時, style: "display: inline" %>
       <%= form.datetime_field :start_at %>
+      </div>
+      <div class="col">
       <%= form.label :終了日時, style: "display: inline" %>
       <%= form.datetime_field :end_at %>
-    <hr>
-    
-      <%= form.label :repeat, '繰り返し' %>     
+      </div>
+      <div class="col">
+      <%= form.label :repeat, '繰返し' %>     
       <%= form.collection_select :repeat, Task.repeats_i18n, :first, :last, prompt: '選択してください' %>
-      
-    <label>カテゴリ選択</label>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
       <%= form.label :category_id, 'カテゴリ' %>     
       <%= form.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください' %>
-    <hr>      
+      </div>
+      <div class="col">
       <%= form.label :場所, style: "display: inline" %>
       <%= form.text_field :place %>
-    <hr>
-    <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="content" style="height: 100px"></textarea>
-    <label for="floatingTextarea2">詳細</label>
+      </div>
     </div>
-  <!--</body>-->
-  <br>
+    <hr>
+      <%= form.label :詳細, style: "display: inline-block" %>
+      <%= form.text_area :content, :size => "100x4" %>
+    <br>
   <div>
     <%= form.submit %>
   </div>
